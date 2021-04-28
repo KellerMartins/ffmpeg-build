@@ -9,6 +9,8 @@ FFMPEG_CONFIGURE_FLAGS=(
     --enable-static
     --enable-pic
 
+    --as=as
+    --disable-x86asm 
     --disable-doc
     --disable-debug
     --disable-avdevice
@@ -16,7 +18,6 @@ FFMPEG_CONFIGURE_FLAGS=(
     --disable-programs
     --enable-rdft
     --enable-ffmpeg
-    --enable-ffprobe
     --disable-network
     --disable-muxers
     --disable-demuxers
@@ -44,6 +45,7 @@ FFMPEG_CONFIGURE_FLAGS=(
     --enable-filter=null
     --enable-filter=setpts
     --enable-filter=trim
+    --enable-filter=aresample
 
     --disable-protocols
     --enable-protocol=file
@@ -168,6 +170,12 @@ FFMPEG_CONFIGURE_FLAGS=(
     --enable-decoder=dsd_msbf
     --enable-decoder=dsd_lsbf_planar
     --enable-decoder=dsd_msbf_planar
+
+    --enable-muxer=pcm_f32be
+    --enable-muxer=pcm_f32le
+
+    --enable-encoder=pcm_f32be
+    --enable-encoder=pcm_f32le
 
     --enable-parser=aac
     --enable-parser=aac_latm

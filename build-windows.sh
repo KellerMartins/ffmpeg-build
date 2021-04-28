@@ -27,8 +27,18 @@ FFMPEG_CONFIGURE_FLAGS+=(
     --extra-cflags='-static -static-libgcc -static-libstdc++'
     --target-os=mingw32
     --arch=$ARCH
-    --cross-prefix=$ARCH-w64-mingw32-
 )
+
+case $ARCH in
+i686)
+    FFMPEG_CONFIGURE_FLAGS+=(--cc="gcc -m32")
+    ;;
+x86_64)
+    ;;
+*)
+    echo "Unknown architecture"
+    exit 1
+esac
 
 ./configure "${FFMPEG_CONFIGURE_FLAGS[@]}"
 make
